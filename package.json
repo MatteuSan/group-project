@@ -1,0 +1,14 @@
+{
+  "name": "soteria-website",
+  "version": "0.0.1",
+  "description": "Soteria's website mothefuckersssss.",
+  "main": "index.html",
+  "private": true,
+  "devDependencies": {
+    "@matteusan/sentro": "0.1.25",
+    "gulp": "4.0.2",
+    "gulp-cli": "2.3.0",
+    "gulp-sass": "5.1.0",
+    "sass": "1.57.1"
+  }
+}
