@@ -4,6 +4,9 @@
   "description": "Soteria's website mothefuckersssss.",
   "main": "index.html",
   "private": true,
+  "scripts": {
+    "build:sass": "gulp"
+  },
   "devDependencies": {
     "@matteusan/sentro": "0.1.25",
     "gulp": "4.0.2",

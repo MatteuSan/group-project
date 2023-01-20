@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap");
+:root {
+  --st-theme-primary-200: #383838;
+  --st-theme-primary-300: #272727;
+  --st-theme-primary-400: #171717;
+  --st-theme-primary-600: #000000;
+  --st-theme-primary-ink: #ffffff;
+  --st-theme-accent-200: #ffc46a;
+  --st-theme-accent-300: #fdaa31;
+  --st-theme-accent-400: #ff9900;
+  --st-theme-accent-600: #c97900;
+  --st-theme-accent-800: #935800;
+  --st-theme-background: #ffffff;
+  --st-theme-background-ink: #000000;
+  --st-theme-font-header: Playfair Display, serif;
+  --st-theme-font-body: Inter, sans-serif;
+  --st-theme-weight-light: 200, 300;
+  --st-theme-weight-normal: 400;
+  --st-theme-weight-bold: 700;
+  --st-theme-weight-black: 900;
+  --st-transition-time: 0.2;
+  --st-shadow-color: rgba(#000, 20%);
+}
+
+*,
+:before,
+:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  background: var(--st-theme-background);
+  color: var(--st-theme-background-ink);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+  font-family: var(--st-theme-font-body);
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.5;
+}
+
+.content-wrap {
+  width: calc(100% - 30px);
+  max-width: var(--st-content-wrap-max-width, 1077px);
+  display: var(--st-content-wrap-display, grid);
+  margin: 0 auto;
+}

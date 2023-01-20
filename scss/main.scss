@@ -1,0 +1,95 @@
+@use 'node_modules/@matteusan/sentro' with (
+    $prefix: 'st',
+    $context: 'theme'
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+:root {
+    @include sentro.token-config(
+        $primary: (
+            '200': #383838,
+            '300': #272727,
+            '400': #171717,
+            '600': #000000,
+            'ink': #ffffff,
+        ),
+        $accent: (
+            '200': #ffc46a,
+            '300': #fdaa31,
+            '400': #ff9900,
+            '600': #c97900,
+            '800': #935800,
+        ),
+        $background: (
+            default: #ffffff,
+            ink: #000000
+        ),
+        $font: (
+            'header': ('Playfair Display', serif),
+            'body': ('Inter', sans-serif)
+        ),
+        $weight: (
+            'light': (200, 300),
+            'normal': 400,
+            'bold': 700,
+            'black': 900
+        )
+    );
+    --st-transition-time: 0.2;
+    --st-shadow-color: rgba(#000, 20%);
+}
+
+@include sentro.breakpoint-config((
+    sm: 320px,
+    md: 640px,
+    lg: 870px,
+    xl: 1077px
+));
+
+*, 
+:before, 
+:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+body {
+    background: sentro.token-get('background');
+    color: sentro.token-get('background-ink');
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+    font-family: sentro.token-get('font-body');
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1.5;
+}
+
+.content-wrap {
+    $margin: 15px;
+    width: calc(100% - #{$margin * 2});
+    max-width: sentro.key-create('content-wrap-max-width', 1077px);
+    display: sentro.key-create('content-wrap-display', grid);
+    margin: 0 auto;
+}
