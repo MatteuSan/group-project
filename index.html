@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,12 +8,62 @@
     <title>Soteria</title>
     <link rel="stylesheet" href="css/main.css">
     <script defer src="js/main.js"></script>
+
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,0,0" />
   </head>
+  
   <body>
-    <header></header>
-    <main class="content-wrap">
+    
+    <header class="st-header"> 
+      <section class="st-header__wrapper"> 
+        <a href="./">
+          <h1>Soteria</h1>
+        </a>
+        <button aria-hidden="true" class="st-navbar__trigger material-symbols-outlined">
+          menu
+        </button>
+        <nav class="st-navbar is-open">
+          <ul class="st-navbar__wrapper"> 
+            <li class="st-navbar__item is-active"> 
+              <a href="./">Home</a>
+            </li>
+            <li class="st-navbar__item">
+              <a href="/about">Among Us</a> 
+              <ul class="st-dropdown">
+                <li class="st-dropdown__item">
+                  <a href="/about/faq.html">FAQs</a> 
+                </li>
+              </ul>
+            </li>
+            <li class="st-navbar__item is-dropdown">
+              <a href="menu.html">Menu</a>
+              <ul class="st-dropdown">
+                <li class="st-dropdown__item">
+                  <a href="./">Putahe</a>
+                </li>
+                <li class="st-dropdown__item">
+                  <a href="./">Putanginamo</a>
+                </li>
+              </ul>
+            </li>
+            <li class="st-navbar__item">
+              <a href="./">Testimonials</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+    
+    <img src="https://pbs.twimg.com/media/CzhkuBdUcAIO721?format=jpg&name=900x900">
+    <main class="content-wrap"> 
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, rem!</p>
     </main>
-    <footer></footer>
+
+    <footer>
+
+    </footer>
+
   </body>
+  
 </html>

@@ -61,9 +61,111 @@ a {
   line-height: 1.5;
 }
 
+ul,
+ol {
+  list-style: none;
+}
+
 .content-wrap {
   width: calc(100% - 30px);
   max-width: var(--st-content-wrap-max-width, 1077px);
   display: var(--st-content-wrap-display, grid);
   margin: 0 auto;
+}
+
+.st-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.7rem 1.2rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--st-theme-primary-ink);
+}
+.st-header .st-header__wrapper {
+  width: calc(100% - 20px);
+  max-width: 1077px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.st-header .st-header__wrapper > a > h1 {
+  color: var(--st-theme-accent-300);
+  font-family: var(--st-theme-font-header);
+  font-size: 2rem;
+  font-weight: var(--st-theme-weight-bold);
+  line-height: 1.5;
+}
+
+.st-navbar__trigger {
+  background: rgba(0, 0, 0, 0);
+  color: var(--st-theme-accent-300);
+  border: none;
+}
+
+.st-navbar {
+  width: 100%;
+  display: var(--st-navbar-visibility, none);
+  position: var(--st-navbar-position, fixed);
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.2rem;
+  background: #171717;
+}
+.st-navbar.is-open {
+  --st-navbar-visibility: block;
+}
+.st-navbar .st-navbar__wrapper {
+  width: calc(100% - 20px);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+  margin: 0 auto;
+}
+.st-navbar .st-navbar__wrapper .st-navbar__item {
+  width: calc(100% + 0.7rem);
+  position: relative;
+  left: -0.7rem;
+  right: 0.7rem;
+  border-radius: 0.3rem;
+  transition: all var(--st-transition-time) ease;
+}
+.st-navbar .st-navbar__wrapper .st-navbar__item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.st-navbar .st-navbar__wrapper .st-navbar__item:active {
+  background: rgba(255, 255, 255, 0.33);
+}
+.st-navbar .st-navbar__wrapper .st-navbar__item.is-active {
+  color: var(--st-theme-accent-300);
+  font-weight: var(--st-theme-weight-bold);
+}
+.st-navbar .st-navbar__wrapper .st-navbar__item a {
+  width: 100%;
+  display: block;
+  padding: 0.5rem 0.7rem;
+}
+
+.st-dropdown {
+  display: var(--st-dropdown-display, none);
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0.3rem;
+}
+.st-dropdown.is-open {
+  --st-dropdown-display: block;
+}
+.st-dropdown .st-dropdown__item {
+  padding: 0.5rem 0.7rem;
+}
+.st-dropdown .st-dropdown__item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.st-dropdown .st-dropdown__item:active {
+  background: rgba(255, 255, 255, 0.33);
 }

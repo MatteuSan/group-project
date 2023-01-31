@@ -1,54 +1,43 @@
-@use 'node_modules/@matteusan/sentro' with (
-    $prefix: 'st',
+@use 'node_modules/@matteusan/sentro' with ($prefix: 'st',
     $context: 'theme'
 );
+
+@use 'components/st-header';
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
 
 :root {
-    @include sentro.token-config(
-        $primary: (
-            '200': #383838,
+    @include sentro.token-config($primary: ('200': #383838,
             '300': #272727,
             '400': #171717,
             '600': #000000,
             'ink': #ffffff,
         ),
-        $accent: (
-            '200': #ffc46a,
+        $accent: ('200': #ffc46a,
             '300': #fdaa31,
             '400': #ff9900,
             '600': #c97900,
             '800': #935800,
         ),
-        $background: (
-            default: #ffffff,
-            ink: #000000
-        ),
-        $font: (
-            'header': ('Playfair Display', serif),
-            'body': ('Inter', sans-serif)
-        ),
-        $weight: (
-            'light': (200, 300),
+        $background: (default: #ffffff,
+            ink: #000000),
+        $font: ('header': ('Playfair Display', serif),
+            'body': ('Inter', sans-serif)),
+        $weight: ('light': (200, 300),
             'normal': 400,
             'bold': 700,
-            'black': 900
-        )
-    );
+            'black': 900));
     --st-transition-time: 0.2;
     --st-shadow-color: rgba(#000, 20%);
 }
 
-@include sentro.breakpoint-config((
-    sm: 320px,
-    md: 640px,
-    lg: 870px,
-    xl: 1077px
-));
+@include sentro.breakpoint-config((sm: 320px,
+        md: 640px,
+        lg: 870px,
+        xl: 1077px));
 
-*, 
-:before, 
+*,
+:before,
 :after {
     margin: 0;
     padding: 0;
@@ -86,10 +75,127 @@ a {
     line-height: 1.5;
 }
 
+ul,
+ol {
+    list-style: none;
+}
+
 .content-wrap {
     $margin: 15px;
     width: calc(100% - #{$margin * 2});
     max-width: sentro.key-create('content-wrap-max-width', 1077px);
     display: sentro.key-create('content-wrap-display', grid);
     margin: 0 auto;
+}
+
+@include st-header.render();
+
+.st-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.7rem 1.2rem;
+    background: rgba(sentro.token-get-raw('primary-600'), 50%);
+    color: sentro.token-get('primary-ink');
+
+    .st-header__wrapper {
+        width: calc(100% - 20px);
+        max-width: 1077px;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        >a>h1 {
+            color: sentro.token-get('accent-300');
+            font-family: sentro.token-get('font-header');
+            font-size: 2rem;
+            font-weight: sentro.token-get('weight-bold');
+            line-height: 1.5;
+        }
+    }
+}
+
+.st-navbar__trigger {
+    background: rgba(0 0 0 / 0);
+    color: sentro.token-get('accent-300');
+    border: none;
+}
+
+.st-navbar {
+    width: 100%;
+    display: var(--st-navbar-visibility, none);
+    position: var(--st-navbar-position, fixed);
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.2rem;
+    background: sentro.token-get-raw('primary-400');
+
+    &.is-open {
+        --st-navbar-visibility: block;
+    }
+
+    .st-navbar__wrapper {
+        width: calc(100% - 20px);
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 0.3rem;
+        margin: 0 auto;
+
+        .st-navbar__item {
+            width: calc(100% + 0.7rem);
+            position: relative;
+            left: -0.7rem;
+            right: 0.7rem;
+            border-radius: 0.3rem;
+            transition: all var(--st-transition-time) ease;
+
+            &:hover {
+                background: rgba(#fff, 20%);
+            }
+
+            &:active {
+                background: rgba(#fff, 33%);
+            }
+
+            &.is-active {
+                color: sentro.token-get('accent-300');
+                font-weight: sentro.token-get('weight-bold');
+            }
+
+            a {
+                width: 100%;
+                display: block;
+                padding: 0.5rem 0.7rem;
+            }
+        }
+    }
+}
+
+.st-dropdown {
+    display: var(--st-dropdown-display, none);
+    position: absolute;
+    overflow: hidden;
+    border-radius: 0.3rem;
+
+    &.is-open {
+        --st-dropdown-display: block;
+    }
+
+    .st-dropdown__item {
+        padding: 0.5rem 0.7rem;
+
+        &:hover {
+            background: rgba(#fff, 20%);
+        }
+
+        &:active {
+            background: rgba(#fff, 33%);
+        }
+    }
 }
